@@ -1,4 +1,4 @@
-import {Sequelize} from "sequelize";
+import {Sequelize} from "sequelize-typescript";
 import Logger from "@/utils/log.utils";
 import {LogEnum} from "@/utils/enum/log.enum";
 import {UserModel} from "../../resource";

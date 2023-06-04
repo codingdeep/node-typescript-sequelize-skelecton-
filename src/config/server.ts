@@ -6,6 +6,7 @@ import compression from "compression";
 import DBConnection from "./db/db.connection";
 import Logger from "@/utils/log.utils";
 import {LogEnum} from "@/utils/enum/log.enum";
+import globalExceptionHandler from "@/middleware/global.exception.handler";
 
 class Server {
     public express: Application;
@@ -37,7 +38,7 @@ class Server {
     }
 
     private initGlobalErrorHandler(): void {
-
+        this.express.use(globalExceptionHandler)
     }
 
     private dbConnection(): void {

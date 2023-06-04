@@ -23,9 +23,17 @@ class UserModel extends Model<UserAttributes, UserInput> implements UserAttribut
         }
     )
     id!: number;
+
+    @Column({type: DataType.STRING})
     firstName!: string;
+
+    @Column({type: DataType.STRING})
     lastName!: string;
+
+    @Column({type: DataType.STRING})
     emailAddress!: string;
+
+    @Column({type: DataType.STRING})
     password!: string;
 
     @BeforeCreate

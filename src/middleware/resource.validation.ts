@@ -1,5 +1,6 @@
 import {AnyZodObject} from "zod";
 import {Request, Response, NextFunction} from "express";
+import HttpException from "@/utils/exceptions/http.exception";
 
 const ResourceValidation = (schema: AnyZodObject) => (req: Request, res: Response, next: NextFunction) => {
     try {
@@ -8,8 +9,9 @@ const ResourceValidation = (schema: AnyZodObject) => (req: Request, res: Respons
             query: req.query,
             params: req.params
         })
-    } catch (e: any) {
         next()
+    } catch (e: any) {
+        next(new HttpException(false, e.issues, 400))
     }
 }
 
